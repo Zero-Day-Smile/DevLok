@@ -198,6 +198,12 @@ Techniques:
 
 ---
 
+### Adversarial Defense & Anti-Spoofing Strategy
+
+RideGuard uses a multi-layered AI/ML fraud detection pipeline to identify and prevent false parametric claims before payout execution. Instead of relying only on raw GPS coordinates, the system evaluates a broader set of technical signals including GPS spoofing and mock-location abuse, duplicate or linked claims, abnormal inactivity patterns, device-network mismatches, and coordinated fraud-ring behavior across multiple accounts. At the model level, RideGuard uses Isolation Forest as a core anomaly detection technique to identify suspicious claim behavior that deviates from normal rider activity patterns, such as synchronized claim timing, unrealistic movement behavior, repeated trigger exploitation, or inconsistent delivery activity relative to historical baselines. This is strengthened with behavioral analytics, geo-validation, device fingerprint risk scoring, and network consistency checks to determine whether a claimant’s reported disruption is operationally believable. To support this pipeline, RideGuard integrates mock APIs for location verification, weather severity monitoring, and delivery activity simulation, while also using web scraping for local disruption intelligence such as riots, curfews, traffic restrictions, or emergency shutdowns that may affect delivery operations. Together, these inputs allow the fraud layer to distinguish between genuine income disruption and adversarial manipulation, while also enabling graph-based detection of coordinated fraud clusters attempting to drain the payout pool through mass false claims.
+
+---
+
 ### Parametric Automation
 
 | Event | Trigger Condition |
@@ -308,7 +314,10 @@ Architecture:
 ---
 
 ## System Architecture
-Mobile App → API Gateway → AI Risk Engine → Parametric Trigger Engine → Fraud Detection Layer → Payment Processor → Analytics Dashboard
+
+<img width="194" height="542" alt="Screenshot 2026-03-20 at 9 50 46 AM" src="https://github.com/user-attachments/assets/5b0afb40-1b53-4c9c-b0ac-ec9b26cac8e3" />
+
+
 ---
 
 ## Development Plan
